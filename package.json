@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx @modelcontextprotocol/inspector npx tsx index.ts",
+    "start": "npx tsx index.ts",
+    "build": "tsc && shx chmod +x dist/*.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +17,8 @@
     "zod": "^3.24.3"
   },
   "devDependencies": {
-    "@types/node": "^22.15.3"
+    "@types/node": "^22.15.3",
+    "shx": "^0.4.0",
+    "typescript": "^5.8.3"
   }
 }

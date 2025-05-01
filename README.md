@@ -14,6 +14,11 @@ Le MCP permet de :
 - Rechercher des entreprises par différents critères
 - Filtrer les résultats selon plusieurs paramètres
 - Accéder aux informations essentielles des entreprises (dénomination, SIREN, SIRET, code NAF)
+- Effectuer des recherches géographiques autour d'un point avec les paramètres suivants :
+  - Latitude et longitude du point de recherche
+  - Rayon de recherche (jusqu'à 50km)
+  - Filtres d'activité (code NAF, section d'activité)
+  - Pagination des résultats
 
 ## Source
 
@@ -26,12 +31,47 @@ L'API comporte certaines limitations :
 - Ne donne pas accès aux prédécesseurs et successeurs d'un établissement
 - Ne permet pas d'accéder aux entreprises non-diffusibles
 - Ne permet pas d'accéder aux entreprises qui se sont vues refuser leur immatriculation au RCS
+- Le rayon de recherche géographique est limité à 50km maximum
 
 ## Limites techniques
 
 - Limite de 7 appels par seconde
 - Disponibilité : 100% sur le mois dernier
 - Accès : Ouvert à tous
+
+## Utilisation
+
+### Installation
+
+```bash
+npm install
+```
+
+### Build
+
+Pour compiler le projet :
+```bash
+npm run build
+```
+
+Cette commande va :
+- Compiler les fichiers TypeScript en JavaScript
+- Les placer dans le dossier `dist/`
+- Rendre les fichiers JavaScript exécutables
+
+### Démarrage
+
+Pour lancer le serveur MCP normalement :
+```bash
+npm start
+```
+
+Pour lancer le serveur avec l'Inspector MCP (recommandé pour le développement) :
+```bash
+npm run dev
+```
+
+L'Inspector MCP fournit une interface graphique pour tester et déboguer les requêtes MCP en temps réel.
 
 ## Ressources MCP pour les contributeurs
 
