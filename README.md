@@ -41,15 +41,21 @@ L'API comporte certaines limitations :
 
 ## Utilisation
 
-### Installation
+#### En tant qu'utilisateur
 
+Le moyen le plus simple d'utiliser ce MCP est via `npx` :
+```bash
+npx mcp-recherche-entreprises
+```
+
+#### En tant que développeur
+
+1. Installation des dépendances :
 ```bash
 npm install
 ```
 
-### Build
-
-Pour compiler le projet :
+2. Build du projet :
 ```bash
 npm run build
 ```
@@ -59,19 +65,35 @@ Cette commande va :
 - Les placer dans le dossier `dist/`
 - Rendre les fichiers JavaScript exécutables
 
-### Démarrage
+3. Démarrage :
 
-Pour lancer le serveur MCP normalement :
-```bash
-npm start
-```
-
-Pour lancer le serveur avec l'Inspector MCP (recommandé pour le développement) :
+Pour lancer le serveur en mode développement avec l'Inspector MCP (recommandé pour le développement) :
 ```bash
 npm run dev
 ```
 
+Pour lancer le serveur sans l'Inspector :
+```bash
+npm start
+```
+
 L'Inspector MCP fournit une interface graphique pour tester et déboguer les requêtes MCP en temps réel.
+
+#### Utilisation avec Cursor
+
+Pour utiliser ce MCP dans Cursor, ajoutez la configuration suivante dans votre fichier `.cursor/settings.json` :
+
+```json
+{
+  "mcpServers": {
+    "recherche-entreprises": {
+      "command": "npx mcp-recherche-entreprises"
+    }
+  }
+}
+```
+
+Cette configuration permettra à Cursor d'utiliser automatiquement ce MCP pour les recherches d'entreprises.
 
 ## Ressources MCP pour les contributeurs
 
