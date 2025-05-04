@@ -169,49 +169,49 @@ server.tool(
     q: z.string().describe("Termes de la recherche (dénomination et/ou adresse, dirigeants, élus)"),
     
     // Filtres d'activité
-    activite_principale: z.string().optional().describe("Code NAF ou code APE"),
-    section_activite_principale: z.string().optional().describe("Section de l'activité principale (A à U)"),
+    activite_principale: z.string().optional().describe("Le code NAF ou code APE, un code d'activité suivant la nomenclature de l'INSEE. Ce paramètre accepte une valeur unique ou une liste de valeurs séparées par des virgules. Il ne s'applique qu'à l'unité légale, et non à ses établissements."),
+    section_activite_principale: z.string().optional().describe("Section de l'activité principale (A à U) selon la nomenclature NAF."),
     
     // Filtres administratifs
-    categorie_entreprise: z.enum(["PME", "ETI", "GE"]).optional(),
-    nature_juridique: z.string().optional().describe("Catégorie juridique de l'unité légale"),
-    etat_administratif: z.enum(["A", "C"]).optional().describe("État administratif (A: Active, C: Cessée)"),
-    tranche_effectif_salarie: z.string().optional().describe("Tranche d'effectif salarié"),
+    categorie_entreprise: z.enum(["PME", "ETI", "GE"]).optional().describe("Catégorie d'entreprise de l'unité légale (PME, ETI, GE)."),
+    nature_juridique: z.string().optional().describe("Catégorie juridique de l'unité légale (code INSEE)."),
+    etat_administratif: z.enum(["A", "C"]).optional().describe("État administratif de l'entreprise (A: Active, C: Cessée)."),
+    tranche_effectif_salarie: z.string().optional().describe("Tranche d'effectif salarié de l'entreprise (ex : 10-19, 20-49, etc.)."),
     
     // Filtres géographiques
-    code_postal: z.string().optional(),
-    code_commune: z.string().optional().describe("Code commune INSEE en 5 caractères"),
-    departement: z.string().optional(),
-    region: z.string().optional(),
-    epci: z.string().optional().describe("Code EPCI (établissement public de coopération intercommunale)"),
+    code_postal: z.string().optional().describe("Code postal en 5 chiffres. Ce paramètre filtre sur les établissements et accepte une valeur unique ou une liste de valeurs séparées par des virgules."),
+    code_commune: z.string().optional().describe("Code commune INSEE en 5 caractères. Ce paramètre filtre sur les établissements et accepte une valeur unique ou une liste de valeurs séparées par des virgules."),
+    departement: z.string().optional().describe("Code de département en deux ou trois chiffres. Ce paramètre filtre sur les établissements et accepte une valeur unique ou une liste de valeurs séparées par des virgules."),
+    region: z.string().optional().describe("Code de région en deux chiffres. Ce paramètre filtre sur les établissements et accepte une valeur unique ou une liste de valeurs séparées par des virgules."),
+    epci: z.string().optional().describe("Code EPCI (établissement public de coopération intercommunale). Ce paramètre filtre sur les établissements et accepte une valeur unique ou une liste de valeurs séparées par des virgules."),
     
     // Filtres de statut spécifique
-    est_association: z.boolean().optional(),
-    est_entrepreneur_individuel: z.boolean().optional(),
-    est_ess: z.boolean().optional(),
-    est_service_public: z.boolean().optional(),
-    est_bio: z.boolean().optional().describe("Entreprise ayant un établissement certifié bio"),
-    est_rge: z.boolean().optional().describe("Entreprise RGE (Reconnue Garante de l'Environnement)"),
-    est_finess: z.boolean().optional().describe("Entreprise ayant un établissement FINESS"),
-    est_qualiopi: z.boolean().optional().describe("Entreprise certifiée Qualiopi"),
-    est_societe_mission: z.boolean().optional().describe("Société à mission"),
+    est_association: z.boolean().optional().describe("Uniquement les entreprises ayant un identifiant d'association ou une nature juridique avec mention 'association'."),
+    est_entrepreneur_individuel: z.boolean().optional().describe("Uniquement les entreprises individuelles."),
+    est_ess: z.boolean().optional().describe("Uniquement les entreprises d'économie sociale et solidaire (ESS)."),
+    est_service_public: z.boolean().optional().describe("Uniquement les structures reconnues comme administration (service public)."),
+    est_bio: z.boolean().optional().describe("Uniquement les entreprises ayant un établissement certifié par l'agence bio."),
+    est_rge: z.boolean().optional().describe("Uniquement les entreprises ayant au moins un établissement RGE (Reconnu Garant de l'Environnement)."),
+    est_finess: z.boolean().optional().describe("Uniquement les entreprises ayant au moins un établissement FINESS (établissements sanitaires et sociaux)."),
+    est_qualiopi: z.boolean().optional().describe("Uniquement les entreprises certifiées Qualiopi (organismes de formation)."),
+    est_societe_mission: z.boolean().optional().describe("Uniquement les sociétés à mission (article L.210-10 du code de commerce)."),
     
     // Filtres sur les personnes
-    nom_personne: z.string().optional().describe("Nom d'un dirigeant ou élu"),
-    prenoms_personne: z.string().optional().describe("Prénom(s) d'un dirigeant ou élu"),
-    type_personne: z.enum(["dirigeant", "elu"]).optional(),
+    nom_personne: z.string().optional().describe("Nom d'un dirigeant ou élu (personne physique ou morale)."),
+    prenoms_personne: z.string().optional().describe("Prénom(s) d'un dirigeant ou élu (personne physique)."),
+    type_personne: z.enum(["dirigeant", "elu"]).optional().describe("Type de personne recherchée : dirigeant ou élu."),
     
     // Filtres financiers
-    ca_min: z.number().optional().describe("Chiffre d'affaires minimum"),
-    ca_max: z.number().optional().describe("Chiffre d'affaires maximum"),
-    resultat_net_min: z.number().optional().describe("Résultat net minimum"),
-    resultat_net_max: z.number().optional().describe("Résultat net maximum"),
+    ca_min: z.number().optional().describe("Chiffre d'affaires minimum (en euros)."),
+    ca_max: z.number().optional().describe("Chiffre d'affaires maximum (en euros)."),
+    resultat_net_min: z.number().optional().describe("Résultat net minimum (en euros)."),
+    resultat_net_max: z.number().optional().describe("Résultat net maximum (en euros)."),
     
     // Paramètres de pagination et d'affichage
-    page: z.number().default(1),
-    per_page: z.number().min(1).max(25).default(10),
-    minimal: z.boolean().optional().describe("Retourne une réponse minimale"),
-    include: z.string().optional().describe("Champs à inclure avec minimal=true (complements,dirigeants,finances,matching_etablissements,siege,score)")
+    page: z.number().default(1).describe("Numéro de page des résultats (défaut : 1)."),
+    per_page: z.number().min(1).max(25).default(10).describe("Nombre de résultats par page (1 à 25, défaut : 10)."),
+    minimal: z.boolean().optional().describe("Retourne une réponse minimale (sans tous les champs détaillés)."),
+    include: z.string().optional().describe("Champs à inclure avec minimal=true (complements, dirigeants, finances, matching_etablissements, siege, score).")
   },
   async (params) => {
     const searchParams = new URLSearchParams();
