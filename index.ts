@@ -262,10 +262,10 @@ server.tool(
     section_activite_principale: z.string().optional().describe("Section de l'activité principale (A à U)"),
     
     // Paramètres de pagination et d'affichage
-    page: z.number().default(1),
-    per_page: z.number().min(1).max(25).default(10),
-    minimal: z.boolean().optional().describe("Retourne une réponse minimale"),
-    include: z.string().optional().describe("Champs à inclure avec minimal=true (complements,dirigeants,finances,matching_etablissements,siege,score)")
+    page: z.number().default(1).describe("Numéro de page des résultats (défaut : 1)."),
+    per_page: z.number().min(1).max(25).default(10).describe("Nombre de résultats par page (1 à 25, défaut : 10)."),
+    minimal: z.boolean().optional().describe("Retourne une réponse minimale (sans tous les champs détaillés)."),
+    include: z.string().optional().describe("Champs à inclure avec minimal=true (complements, dirigeants, finances, matching_etablissements, siege, score).")
   },
   async (params) => {
     const searchParams = new URLSearchParams();
