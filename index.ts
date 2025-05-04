@@ -164,6 +164,7 @@ const formatResults = (data: any): McpResponse => {
  */
 server.tool(
   "rechercher_entreprise",
+  "Recherche des entreprises françaises selon de nombreux critères (nom, activité, localisation, etc.).",
   {
     // Paramètres de recherche principaux
     q: z.string().describe("Termes de la recherche (dénomination et/ou adresse, dirigeants, élus)"),
@@ -250,8 +251,8 @@ server.tool(
  */
 server.tool(
   "rechercher_entreprise_geographiques",
+  "Recherche des entreprises autour d'un point géographique (latitude, longitude, rayon, etc.).",
   {
-    // Paramètres de géolocalisation
     lat: z.number().describe("Latitude du point de recherche"),
     long: z.number().describe("Longitude du point de recherche"),
     radius: z.number().optional().default(5).describe("Rayon de recherche en km (max 50km)"),
