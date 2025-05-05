@@ -2,6 +2,10 @@
 
 Ce MCP (Module de Connexion à une API) permet d'interagir avec l'API Recherche d'entreprises mise à disposition par data.gouv.fr.
 
+<a href="https://glama.ai/mcp/servers/@yoanbernabeu/mcp-recherche-entreprises">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@yoanbernabeu/mcp-recherche-entreprises/badge" alt="Recherche d'entreprises MCP server" />
+</a>
+
 ## Description
 
 L'API Recherche d'entreprises permet de rechercher et de trouver des entreprises françaises. Elle offre deux types de recherche :
@@ -95,7 +99,7 @@ Pour utiliser ce MCP dans Cursor, ajoutez la configuration suivante dans votre f
 
 Cette configuration permettra à Cursor d'utiliser automatiquement ce MCP pour les recherches d'entreprises.
 
-## Ressources MCP pour les contributeurs
+## Ressources MCP pour les contribueurs
 
 ### Documentation officielle
 - [Documentation MCP](https://modelcontextprotocol.io/docs)
