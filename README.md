@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/yoanbernabeu-mcp-recherche-entreprises-badge.png)](https://mseep.ai/app/yoanbernabeu-mcp-recherche-entreprises)
+
 # MCP Recherche d'entreprises
 
 Ce MCP (Module de Connexion à une API) permet d'interagir avec l'API Recherche d'entreprises mise à disposition par data.gouv.fr.
