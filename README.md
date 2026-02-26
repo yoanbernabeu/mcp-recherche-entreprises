@@ -1,5 +1,9 @@
 # MCP Recherche d'entreprises
 
+> **⚠️ Ce projet n'est pas affilié à data.gouv.fr et ne constitue pas le serveur MCP officiel.**
+> Le serveur MCP officiel de data.gouv.fr est disponible ici : [datagouv-mcp](https://github.com/datagouv/datagouv-mcp).
+> Ce repository est désormais archivé. Nous vous recommandons d'utiliser le serveur officiel.
+
 Ce MCP (Module de Connexion à une API) permet d'interagir avec l'API Recherche d'entreprises mise à disposition par data.gouv.fr.
 
 ## Description
